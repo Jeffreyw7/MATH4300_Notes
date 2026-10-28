@@ -1,0 +1,17 @@
+int y = x + 1
+y is a lvalue because it has a address
+"x+1" is a rvalue because it has a temporary address
+
+Transfer ownership to another object, no need for copy
+
+rvalue References represented by **&&** 
+ - Allows overloads that the compiler selects
+
+
+noexcept - doesn't throw exceptions/errors
+
+**Move Constructor**
+Move operation is okay with moving the pointer, that the copy constructor can't do
+Difference: 
+Grabbing the members and reposition it to a new object
+Important: Must include a noexcept
