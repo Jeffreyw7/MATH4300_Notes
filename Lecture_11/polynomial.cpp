@@ -99,3 +99,20 @@ double Polynomial::solve(double x) const {
     }
     return result;
 }
+
+//Compute the derivative of the polynomial
+Polynomial Polynomial::derivative() {
+    //Return a zero polynomial if polynomial is constant or zero
+    if(size <= 1){
+        return Polynomial(); 
+    }
+
+    double* derivCoeffs = new double[size - 1];
+    for (int i = 1; i < size; i++) {
+        derivCoeffs[i - 1] = coeff[i] * i; // Derivative: d/dx (a_i * x^i) = a_i * i * x^(i-1)
+    }
+
+    Polynomial derivPoly(derivCoeffs, size - 2);
+    delete[] derivCoeffs; // Clean up temporary array
+    return derivPoly;
+}
